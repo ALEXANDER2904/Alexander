@@ -20,7 +20,6 @@
     "estrella2": "/estrella2.webp",
     "email": "alexjo2903@gmail.com",
     "phone": "+57 3222690225",
-    "url": "https://midu.dev",
     "summary": "Me apasiona lo que hago, ya sea trabajando en equipo o de forma individual. Como freelancer, he desarrollado proyectos y páginas personales con éxito, asegurando siempre la satisfacción de mis clientes.",
     "summary2": "Soy una persona tranquila y activa, con un gran interés por el aprendizaje constante. Esto me permite mejorar mis habilidades y asegurar que cada proyecto cumpla siempre con altos estándares de calidad.",
     "location": {
@@ -46,7 +45,7 @@
   "work": [
     {
       "name": "Freelancer",
-      "url": "https://twitch.tv/midudev",
+      "url": "",
       "startDate": "2024-10-01",
       "endDate": null,
       "summary": "Participado en el desarrollo de proyectos en equipo y ademas en el desarrollo individual de portfolios, paginas y landing pages para entornos comerciales.",

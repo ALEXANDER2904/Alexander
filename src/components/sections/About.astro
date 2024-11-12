@@ -87,6 +87,10 @@ const SOCIAL_ICONS: SocialIcon = {
     text-align: left;
   }
 
+  .right {
+    text-align: right;
+  }
+
   .center {
     text-align: center;
     padding: 40px;
@@ -125,8 +129,10 @@ const SOCIAL_ICONS: SocialIcon = {
       }
   }
 
-  .right {
-    text-align: right;
+  @media (width <= 700px){
+    .container {
+  flex-direction: column; 
+  }
   }
 
 </style>

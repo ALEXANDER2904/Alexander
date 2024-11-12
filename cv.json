@@ -1,0 +1,176 @@
+{
+  "header":{
+    "menu": "413×",
+    "atajo1":"SOBRE MI",
+    "atajo2":"PROYECTOS",
+    "atajo3":"HABILIDADES"
+  },
+  "presentation": {
+    "namep": "ALEXANDER",
+    "subtitle": "<Developer/>"
+  },
+  "cv":{
+    "url": "https://www.youtube.com/@slaiper48"
+  },
+  "basics": {
+    "name": "Alexander Martinez",
+    "label": "Full Stack Developer",
+    "image": "/me.jpg",
+    "estrella1": "/estrella1.webp",
+    "estrella2": "/estrella2.webp",
+    "email": "alexjo2903@gmail.com",
+    "phone": "+57 3222690225",
+    "url": "https://midu.dev",
+    "summary": "Me apasiona lo que hago, ya sea trabajando en equipo o de forma individual. Como freelancer, he desarrollado proyectos y páginas personales con éxito, asegurando siempre la satisfacción de mis clientes.",
+    "summary2": "Soy una persona tranquila y activa, con un gran interés por el aprendizaje constante. Esto me permite mejorar mis habilidades y asegurar que cada proyecto cumpla siempre con altos estándares de calidad.",
+    "location": {
+      "address": "",
+      "postalCode": "08820",
+      "city": "Pitalito",
+      "countryCode": "COL",
+      "region": "Colombia"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "Alexander",
+        "url": "https://www.linkedin.com/in/alexander-martinez-39a620288/"
+      },
+      {
+        "network": "GitHub",
+        "username": "Alexander",
+        "url": "https://github.com/ALEXANDER2904"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Freelancer",
+      "url": "https://twitch.tv/midudev",
+      "startDate": "2024-10-01",
+      "endDate": null,
+      "summary": "Participado en el desarrollo de proyectos en equipo y ademas en el desarrollo individual de portfolios, paginas y landing pages para entornos comerciales.",
+      "highlights": [
+        "Started the company"
+      ]
+    }
+  ],
+  "education": [{
+    "institution": "SENA - YAMBORO",
+    "url": "https://www.sena.edu.co/es-co/Paginas/default.aspx",
+    "area": "Analisis y desarrollo de software",
+    "studyType": "Tecnologo",
+    "startDate": "2022-10-01",
+    "endDate": "2024-10-01",
+    "score": "4.0",
+    "courses": [
+      "DB1101 - Basic SQL"
+    ]
+  }],
+  "certificates": [{
+    "name": "Certificate",
+    "date": "2021-11-07",
+    "issuer": "Company",
+    "url": "https://certificate.com"
+  }],
+  "skills": [
+    {
+      "name": "HTML",
+      "level": "Master",
+      "keywords": [
+        "Desarrollo Web", "Frontend"
+      ]
+    },
+    {
+      "name": "CSS",
+      "level": "Master",
+      "keywords": [
+        "Desarrollo Web", "Frontend", "Diseño Responsive"
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "level": "Master",
+      "keywords": [
+        "Desarrollo Web", "Frontend", "Backend", "Fullstack"
+      ]
+    },
+    {
+      "name": "Node",
+      "level": "Avanzado",
+      "keywords": [
+        "Desarrollo Web", "Backend", "JavaScript", "Servidor"
+      ]
+    },
+    {
+      "name": "MySQL",
+      "level": "Avanzado",
+      "keywords": [
+        "Bases de Datos", "SQL", "Almacenamiento de Datos", "Backend"
+      ]
+    },
+    {
+      "name": "Git",
+      "level": "Avanzado",
+      "keywords": [
+        "Control de Versiones", "Colaboración", "Código Fuente"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "level": "Avanzado",
+      "keywords": [
+        "Control de Versiones", "Colaboración", "Código Fuente", "Git"
+      ]
+    },
+    {
+      "name": "React",
+      "level": "Avanzado",
+      "keywords": [
+        "Desarrollo Web", "Frontend", "JavaScript Library", "UI"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Español",
+      "fluency": "Nativo"
+    },
+    {
+      "language": "Ingles",
+      "fluency": "Avanzado"
+    }
+  ],
+  "interests": [{
+    "name": "Wildlife",
+    "keywords": [
+      "Ferrets",
+      "Unicorns"
+    ]
+  }],
+  "references": [{
+    "name": "Jane Doe",
+    "reference": "Reference…"
+  }],
+  "projects": [
+    {
+      "name": "System-A",
+      "description": "Sistema de gestion de Inventario y Maquinaria",
+      "highlights": [
+        "Proyecto Mediano"
+      ],
+      "url": "https://github.com/ALEXANDER2904",
+      "github": "https://github.com/ALEXANDER2904"
+    },
+    {
+      "name": "Html Path",
+      "isActive": true,
+      "description": "Portoflio con contendio HTML Y CSS PURO",
+      "highlights": [
+        "Ideas de diseño"
+      ],
+      "url": "https://github.com/ALEXANDER2904",
+      "github": "https://github.com/ALEXANDER2904"
+    }
+  ]
+}

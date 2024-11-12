@@ -1,0 +1,241 @@
+---
+import Section from "../Section.astro"
+import Cv from "@/icons/cv.astro"
+
+import { presentation, basics, cv } from "@cv"
+const { url } = cv
+const { namep, subtitle } = presentation
+const { name, estrella1, estrella2 } = basics
+---
+
+<Section id="namep-section" >
+    
+    <div data-fit-text="90 998 main-content-title" class="main-content-title glitch-title" style="">
+        <div class="contenedor_cv">
+            <div class="cv_icon">
+                <a
+                    href={url}
+                    title={`Echa un vistazo a la hoja de vida de ${name} `}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                    <Cv/>
+                </a>
+            </div>
+            <img class="imagen1" src={estrella1} alt="Estrella">
+            <img class="imagen2" src={estrella2} alt="Estrella">
+        </div>
+        <span data-text={namep} class="nombre">{namep} </span>
+        <span data-text={subtitle} class="subtitulo">{subtitle}</span>
+    </div>
+</Section>
+
+<style>
+    /* ANIMACIONES */
+    @-webkit-keyframes noise-anim{
+        0% {clip:rect(25px, 9999px, 58px, 0)}
+        5% {clip:rect(88px, 9999px, 21px, 0)} 
+        10%{clip:rect(94px, 9999px, 28px, 0)} 
+        15%{clip:rect(23px, 9999px, 61px, 0)}
+        20%{clip:rect(20px, 9999px, 47px, 0)}
+        25%{clip:rect(56px, 9999px, 46px, 0)}
+        30%{clip:rect(100px, 9999px, 18px, 0)}
+        35%{clip:rect(32px, 9999px, 61px, 0)}
+        40%{clip:rect(51px, 9999px, 26px, 0)}
+        45%{clip:rect(43px, 9999px, 28px, 0)}
+        50%{clip:rect(90px, 9999px, 26px, 0)}
+        55%{clip:rect(5px, 9999px, 4px, 0)}
+        60%{clip:rect(20px, 9999px, 69px, 0)}
+        65%{clip:rect(28px, 9999px, 44px, 0)}
+        70%{clip:rect(33px, 9999px, 73px, 0)}
+        75%{clip:rect(57px, 9999px, 88px, 0)}
+        80%{clip:rect(25px, 9999px, 69px, 0)}
+        85%{clip:rect(92px, 9999px, 60px, 0)}
+        90%{clip:rect(49px, 9999px, 4px, 0)}
+        95%{clip:rect(24px, 9999px, 92px, 0)}
+        100%{clip:rect(89px, 9999px, 82px, 0)}
+    }
+    @keyframes noise-anim{
+        0% {clip:rect(25px, 9999px, 58px, 0)}
+        5% {clip:rect(88px, 9999px, 21px, 0)} 
+        10%{clip:rect(94px, 9999px, 28px, 0)} 
+        15%{clip:rect(23px, 9999px, 61px, 0)}
+        20%{clip:rect(20px, 9999px, 47px, 0)}
+        25%{clip:rect(56px, 9999px, 46px, 0)}
+        30%{clip:rect(100px, 9999px, 18px, 0)}
+        35%{clip:rect(32px, 9999px, 61px, 0)}
+        40%{clip:rect(51px, 9999px, 26px, 0)}
+        45%{clip:rect(43px, 9999px, 28px, 0)}
+        50%{clip:rect(90px, 9999px, 26px, 0)}
+        55%{clip:rect(5px, 9999px, 4px, 0)}
+        60%{clip:rect(20px, 9999px, 69px, 0)}
+        65%{clip:rect(28px, 9999px, 44px, 0)}
+        70%{clip:rect(33px, 9999px, 73px, 0)}
+        75%{clip:rect(57px, 9999px, 88px, 0)}
+        80%{clip:rect(25px, 9999px, 69px, 0)}
+        85%{clip:rect(92px, 9999px, 60px, 0)}
+        90%{clip:rect(49px, 9999px, 4px, 0)}
+        95%{clip:rect(24px, 9999px, 92px, 0)}
+        100%{clip:rect(89px, 9999px, 82px, 0)}
+    }
+    @-webkit-keyframes noise-anim-2{
+        0% {clip:rect(61px, 9999px, 86px, 0)}
+        5% {clip:rect(64px, 9999px, 36px, 0)}
+        10%{clip:rect(17px, 9999px, 78px, 0)} 
+        15%{clip:rect(89px, 9999px, 92px, 0)}
+        20%{clip:rect(18px, 9999px, 90px, 0)}
+        25%{clip:rect(55px, 9999px, 54px, 0)}
+        30%{clip:rect(78px, 9999px, 77px, 0)}
+        35%{clip:rect(30px, 9999px, 98px, 0)}
+        40%{clip:rect(72px, 9999px, 39px, 0)}
+        45%{clip:rect(94px, 9999px, 89px, 0)}
+        50%{clip:rect(18px, 9999px, 40px, 0)}
+        55%{clip:rect(54px, 9999px, 91px, 0)}
+        60%{clip:rect(46px, 9999px, 77px, 0)}
+        65%{clip:rect(45px, 9999px, 27px, 0)}
+        70%{clip:rect(12px, 9999px, 63px, 0)}
+        75%{clip:rect(96px, 9999px, 8px, 0)}
+        80%{clip:rect(96px, 9999px, 10px, 0)}
+        85%{clip:rect(26px, 9999px, 68px, 0)}
+        90%{clip:rect(64px, 9999px, 23px, 0)}
+        95%{clip:rect(31px, 9999px, 63px, 0)}
+        100%{clip:rect(27px, 9999px, 6px, 0)}
+    }
+    @keyframes noise-anim-2{
+        0% {clip:rect(61px, 9999px, 86px, 0)}
+        5% {clip:rect(64px, 9999px, 36px, 0)}
+        10%{clip:rect(17px, 9999px, 78px, 0)} 
+        15%{clip:rect(89px, 9999px, 92px, 0)}
+        20%{clip:rect(18px, 9999px, 90px, 0)}
+        25%{clip:rect(55px, 9999px, 54px, 0)}
+        30%{clip:rect(78px, 9999px, 77px, 0)}
+        35%{clip:rect(30px, 9999px, 98px, 0)}
+        40%{clip:rect(72px, 9999px, 39px, 0)}
+        45%{clip:rect(94px, 9999px, 89px, 0)}
+        50%{clip:rect(18px, 9999px, 40px, 0)}
+        55%{clip:rect(54px, 9999px, 91px, 0)}
+        60%{clip:rect(46px, 9999px, 77px, 0)}
+        65%{clip:rect(45px, 9999px, 27px, 0)}
+        70%{clip:rect(12px, 9999px, 63px, 0)}
+        75%{clip:rect(96px, 9999px, 8px, 0)}
+        80%{clip:rect(96px, 9999px, 10px, 0)}
+        85%{clip:rect(26px, 9999px, 68px, 0)}
+        90%{clip:rect(64px, 9999px, 23px, 0)}
+        95%{clip:rect(31px, 9999px, 63px, 0)}
+        100%{clip:rect(27px, 9999px, 6px, 0)}
+    }
+    
+    /* HOVER Y ESTILOS PARA EL SECTION */
+    .main-content-title {
+    font-family: "Shadows Into Light", cursive;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .main-content-title .nombre {
+        font-size: 65.46px;
+    }
+
+    .main-content-title .subtitulo {
+        font-size: 35.46px;
+        margin-left: 200px;
+        margin-top: -40px;
+    }
+    .main-content-title span {
+    display: inline-block;
+    position: relative;
+    }
+    .glitch-title span{
+        position: relative;
+    }
+    /* ANIMACION HACIA LA IZQUIRDA */
+    .glitch-title span:hover:before, span.hovered:before{
+        content: attr(data-text);
+        position: absolute;
+        width:calc(100% + 2px);
+        left: -2px;
+        text-shadow: 1px 0 rgba(0, 0, 0, 0.6);
+        top: 0;
+        background: transparent;
+        overflow: hidden;
+        clip: rect(0, 900px, 0, 0);
+        -webkit-animation: noise-anim-2 1s forwards linear alternate-reverse;
+        animation: noise-anim-2 1s forwards linear alternate-reverse;
+    }
+    /* ANIMACION HACIA LA DERECHA */
+    .glitch-title span:hover:after, .glitch-title span.hovered:after{
+        content: attr(data-text);
+        width:calc(100% + 2px);
+        position: absolute;
+        left: 2px;
+        text-shadow: -1px 0 rgba(0, 0, 0, 0.6);
+        top: 0;
+        background: transparent;
+        overflow: hidden;
+        clip: rect(0, 900px, 0, 0);
+        -webkit-animation: noise-anim 1s forwards linear alternate-reverse;
+        animation: noise-anim 1s forwards linear alternate-reverse;
+    }
+
+    /* ELEMENTOS DEL CV */
+    .contenedor_cv{
+        display: flex;
+        position: relative;
+        left: 25%;
+    }
+
+    .imagen1{
+        margin-top: -10px;
+        width: 15px;
+        height: 15px;
+        animation: fadeInOut 8s infinite;
+    }
+
+    .imagen2{
+        margin-top: 3px;
+        margin-left: -8px;
+        width: 15px;
+        height: 20px;
+        animation: fadeInOut 5s infinite; 
+    }
+
+    /* ICONO CV */
+    .cv_icon{
+        color: #555;
+        font-size: 0.65rem;
+        display: flex;
+        gap: 4px;
+        margin-top: 8px;
+    }
+
+    .cv_icon a {
+        color: #777;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #eee;
+        padding: 4px;
+        height: 32px;
+        width: 32px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+    .cv_icon a:hover {
+    background: #eee;
+    border: 1px solid #ddd;
+    }
+
+    /* Definición de la animación */
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0; /* Oculta la imagen */
+      }
+      50% {
+        opacity: 1; /* Muestra la imagen */
+      }
+    }
+
+</style>

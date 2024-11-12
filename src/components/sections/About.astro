@@ -1,0 +1,132 @@
+---
+import Section from "../Section.astro"
+import LinkedIn from "@/icons/LinkedIn.astro"
+import GitHub from "@/icons/GitHub.astro"
+import Mail from "@/icons/Mail.astro"
+import Phone from "@/icons/Phone.astro"
+import type { SocialIcon } from "@/types"
+
+import { basics } from "@cv"
+const { summary, summary2, image, name, profiles, phone, email} = basics
+
+const SOCIAL_ICONS: SocialIcon = {
+  GitHub,
+  LinkedIn
+}
+---
+
+<Section id="about-section" >
+  <div class="container">
+    <div class="box left">
+      <p>
+      {summary}
+    </p>
+  </div>
+    <div class="box center">
+      <img src={image} alt={name} />
+
+      <footer class="no-print">
+        {
+          email && (
+            <a
+              href={`mailto:${email}`}
+              title={`Enviar un correo electrónico a ${name} al correo ${email}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Mail />
+            </a>
+          )
+        }
+        {
+          phone && (
+            <a
+              href={`tel:${phone}`}
+              title={`Llamar por teléfono a ${name} al número ${phone}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Phone />
+            </a>
+          )
+        }
+        {
+          profiles.map(({ network, url, username }) => {
+            const Icon = SOCIAL_ICONS[network]
+
+            return (
+              <a
+                href={url}
+                title={`Visitar el perfil de ${username} en ${network}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon />
+              </a>
+            )
+          })
+        }
+      </footer>
+    </div>
+    <div class="box right">
+      <p>
+      {summary2}
+    </p></div>
+  </div>
+</Section>
+
+<style>
+  .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; 
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .center {
+    text-align: center;
+    padding: 40px;
+
+      img {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        width: 128px;
+        border-radius: 100px;
+      }
+
+      footer {
+        color: #555;
+        font-size: 0.65rem;
+        display: flex;
+        gap: 4px;
+        margin-top: 8px;
+      }
+
+      footer a {
+        color: #777;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #eee;
+        padding: 4px;
+        height: 32px;
+        width: 32px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+
+      footer a:hover {
+        background: #eee;
+        border: 1px solid #ddd;
+      }
+  }
+
+  .right {
+    text-align: right;
+  }
+
+</style>

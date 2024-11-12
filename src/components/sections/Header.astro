@@ -51,33 +51,37 @@ const { menu, atajo1, atajo2, atajo3 } = header
 </style>
 
 <script>
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    
-    document.querySelectorAll("p[data-value]").forEach(pElement => {
-      let interval = null; 
-      pElement.onmouseover = event => {
-        let iteration = 0;
-    
-        if (interval) clearInterval(interval);
-    
-        interval = setInterval(() => {
-          event.target.innerText = event.target.innerText
-            .split("")
-            .map((letter, index) => {
-              if(index < iteration) {
-                return event.target.dataset.value[index];
-              }
-    
-              return letters[Math.floor(Math.random() * 26)];
-            })
-            .join("");
-    
-          if(iteration >= event.target.dataset.value.length){ 
-            clearInterval(interval);
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+document.querySelectorAll("p[data-value]").forEach((pElement) => {
+  const p = pElement as HTMLParagraphElement; 
+
+  let interval: number | null = null; 
+
+  p.onmouseover = () => {
+    let iteration = 0;
+
+    if (interval !== null) clearInterval(interval);
+
+    interval = window.setInterval(() => {
+      p.innerText = p.innerText
+        .split("")
+        .map((letter, index) => {
+          if (index < iteration) {
+            return p.dataset.value![index]; 
           }
-    
-          iteration += 1 / 3;
-        }, 30);
+
+          return letters[Math.floor(Math.random() * 26)];
+        })
+        .join("");
+
+      if (iteration >= p.dataset.value!.length) {
+        clearInterval(interval);
       }
-    });
+
+      iteration += 1 / 3;
+    }, 30);
+  };
+});
+
 </script>

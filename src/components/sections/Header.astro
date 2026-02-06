@@ -80,7 +80,7 @@ document.querySelectorAll("p[data-value]").forEach((pElement) => {
     interval = window.setInterval(() => {
       p.innerText = p.innerText
         .split("")
-        .map((letter, index) => {
+        .map((_letter, index) => {
           if (index < iteration) {
             return p.dataset.value![index]; 
           }

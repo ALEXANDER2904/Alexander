@@ -1,7 +1,5 @@
 ---
-// se ejecuta en el servidor o en build time <----
-const { title } = Astro.props
-const { id } = Astro.props
+const { title, id } = Astro.props
 ---
 
 <section id={id}>
@@ -9,9 +7,7 @@ const { id } = Astro.props
   <slot />
 </section>
 
-<script>
-  // se ejecuta en el cliente <----
-</script>
+
 
 <style>
   section {

@@ -1,4 +1,7 @@
 export interface CV {
+  header: Header
+  presentation: Presentation
+  cv: CvLink
   basics: Basics
   work: Array<Work>
   volunteer: Array<Volunteer>
@@ -13,14 +16,32 @@ export interface CV {
   projects: Array<Projects>
 }
 
+interface Header {
+  menu: string
+  atajo1: string
+  atajo2: string
+  atajo3: string
+}
+
+interface Presentation {
+  namep: string
+  subtitle: string
+}
+
+interface CvLink {
+  url: string
+}
+
 interface Basics {
   name: string
   label: string
   image: string
+  estrella1: string
+  estrella2: string
   email: string
   phone: string
-  url: string
   summary: string
+  summary2: string
   location: Location
   profiles: Array<Profiles>
 }

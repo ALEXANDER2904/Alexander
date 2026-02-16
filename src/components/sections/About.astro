@@ -1,36 +1,35 @@
 ---
-import Section from "../Section.astro"
-import LinkedIn from "@/icons/LinkedIn.astro"
-import GitHub from "@/icons/GitHub.astro"
-import Mail from "@/icons/Mail.astro"
-import Phone from "@/icons/Phone.astro"
-import type { SocialIcon } from "@/types"
+import Section from "../Section.astro";
+import LinkedIn from "@/icons/LinkedIn.astro";
+import GitHub from "@/icons/GitHub.astro";
+import Mail from "@/icons/Mail.astro";
+import Phone from "@/icons/Phone.astro";
+import type { SocialIcon } from "@/types";
 
-import { basics } from "@cv"
-const { summary, summary2, image, name, profiles, phone, email} = basics
+import { basics } from "@cv";
+const { summary, image, name, profiles, phone, email } = basics;
 
 const SOCIAL_ICONS: SocialIcon = {
   GitHub,
-  LinkedIn
-}
+  LinkedIn,
+};
 ---
 
-<Section id="about-section" >
+<Section id="about-section">
   <div class="container">
     <div class="box left">
       <p>
-      {summary}
-    </p>
-  </div>
-    <div class="box center">
+        {summary}
+      </p>
+    </div>
+    <div class="box right">
       <img src={image} alt={name} />
-
-      <footer class="no-print">
+      <footer>
         {
           email && (
             <a
               href={`mailto:${email}`}
-              title={`Enviar un correo electrónico a ${name} al correo ${email}`}
+              title={`Contactame por correo`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -42,7 +41,7 @@ const SOCIAL_ICONS: SocialIcon = {
           phone && (
             <a
               href={`tel:${phone}`}
-              title={`Llamar por teléfono a ${name} al número ${phone}`}
+              title={`Llamame`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -51,88 +50,76 @@ const SOCIAL_ICONS: SocialIcon = {
           )
         }
         {
-          profiles.map(({ network, url, username }) => {
-            const Icon = SOCIAL_ICONS[network]
+          profiles.map(({ network, url }) => {
+            const Icon = SOCIAL_ICONS[network];
 
             return (
               <a
                 href={url}
-                title={`Visitar el perfil de ${username} en ${network}`}
+                title={`Visita mi perfil en ${network}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Icon />
               </a>
-            )
+            );
           })
         }
       </footer>
     </div>
-    <div class="box right">
-      <p>
-      {summary2}
-    </p></div>
   </div>
 </Section>
 
 <style>
   .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
-
   .left {
     text-align: left;
   }
-
   .right {
-    text-align: right;
-  }
-
-  .center {
     text-align: center;
     padding: 40px;
 
-      img {
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        width: 128px;
-        border-radius: 100px;
-      }
-
-      footer {
-        color: #555;
-        font-size: 0.65rem;
-        display: flex;
-        gap: 4px;
-        margin-top: 8px;
-      }
-
-      footer a {
-        color: #777;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #eee;
-        padding: 4px;
-        height: 32px;
-        width: 32px;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-      }
-
-      footer a:hover {
-        background: #eee;
-        border: 1px solid #ddd;
-      }
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      width: 128px;
+      border-radius: 100px;
+    }
+    /* Contenedor del listado de iconos bajo la foto */
+    footer {
+      color: #555;
+      display: flex;
+      gap: 4px;
+      margin-top: 5px;
+    }
+    /* Lisatdo de iconos bajo la foto */
+    footer a {
+      color: #777;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #eee;
+      padding: 4px;
+      height: 36px;
+      width: 36px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    footer a:hover {
+      background: #eee;
+      border: 1px solid #ddd;
+    }
   }
 
-  @media (width <= 700px){
+  @media (width <= 700px) {
     .container {
-  flex-direction: column; 
+      flex-direction: column;
+    }
   }
-  }
-
+  
 </style>

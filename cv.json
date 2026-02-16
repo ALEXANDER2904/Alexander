@@ -15,13 +15,14 @@
   "basics": {
     "name": "Alexander Martinez",
     "label": "Full Stack Developer",
-    "image": "/me.jpg",
+    "image": "/Alex.jfif",
     "estrella1": "/estrella1.webp",
     "estrella2": "/estrella2.webp",
     "email": "alexjo2903@gmail.com",
     "phone": "+57 3222690225",
-    "summary": "Apasionado por mi trabajo, ya sea en equipo o de forma individual, he desarrollado proyectos exitosos como freelancer, asegurando la satisfacción del cliente.",
-    "summary2": "Tranquilo, activo comprometido e impulsado por un apetito de aprendizaje constante, logro mejorar mis habilidades y garantizar proyectos de alta calidad.",
+    "summary": "Me encanta lo que hago y se nota en mis proyectos. Como freelancer he entregado soluciones que funcionan, trabajando tanto por mi cuenta como con otros. Me mantengo aprendiendo constantemente porque sé que siempre hay espacio para mejorar y dar más.",
+    "summary1": "Amo lo que hago y se nota en mis proyectos. Como freelancer he entregado soluciones que funcionan, trabajando tanto por mi cuenta como con otros. ",
+    "summary2": "Me mantengo aprendiendo constantemente porque sé que siempre hay espacio para mejorar y dar más.",
     "location": {
       "address": "",
       "postalCode": "08820",
@@ -74,24 +75,17 @@
   }],
   "skills": [
     {
-      "name": "HTML",
-      "level": "Master",
+      "name": "React / Native",
+      "level": "Avanzado",
       "keywords": [
-        "Desarrollo Web", "Frontend"
+        "Desarrollo Web", "Frontend", "JavaScript Library", "UI"
       ]
     },
     {
-      "name": "CSS",
-      "level": "Master",
+      "name": "Astro",
+      "level": "Avanzado",
       "keywords": [
-        "Desarrollo Web", "Frontend", "Diseño Responsive"
-      ]
-    },
-    {
-      "name": "JavaScript",
-      "level": "Master",
-      "keywords": [
-        "Desarrollo Web", "Frontend", "Backend", "Fullstack"
+        "Desarrollo Web", "Frontend", "JavaScript Library", "UI"
       ]
     },
     {
@@ -123,10 +117,17 @@
       ]
     },
     {
-      "name": "React",
-      "level": "Avanzado",
+      "name": "JavaScript",
+      "level": "Master",
       "keywords": [
-        "Desarrollo Web", "Frontend", "JavaScript Library", "UI"
+        "Desarrollo Web", "Frontend", "Backend", "Fullstack"
+      ]
+    },
+    {
+      "name": "Model Context Protocol",
+      "level": "Master",
+      "keywords": [
+        "Desarrollo Web", "Frontend", "Backend", "Fullstack"
       ]
     }
   ],

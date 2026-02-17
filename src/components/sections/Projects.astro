@@ -1,21 +1,39 @@
 ---
-import GitHub from "@/icons/GitHub.astro"
-import Section from "../Section.astro"
+import GitHub from "@/icons/GitHub.astro";
+import Mobile from "@/icons/Mobile.astro";
+import NewPage from "@/icons/NewPage.astro";
+import Eye from "@/icons/eye.astro";
+import Section from "../Section.astro";
+import Modal from "../Modal.astro";
+import { projects } from "@cv";
 
-import { projects } from "@cv"
+const ICON: Record<string, any> = {
+  Mobile,
+  GitHub,
+};
+
+const mICON: Record<string, any> = {
+  Eye,
+  NewPage,
+};
 ---
 
-<Section id="projects-section"  title="Proyectos">
+<Section id="projects-section" title="Proyectos">
   <ul>
     {
-      projects.map(
-        ({ url, description, highlights, name, isActive, github }) => {
+      projects.map(({ url, description, highlights, name, isActive, github, icon, ModalIcon }) => {
+          const Icon = ICON[icon];
+          const ModalIcono = mICON[ModalIcon];
           return (
             <li>
               <article>
                 <header>
                   <h3>
-                    <a href={url} target="_blank" title={`Ver el proyecto ${name}`}>
+                    <a
+                      href={url}
+                      target="_blank"
+                      title={`Ver el proyecto ${name}`}
+                    >
                       {name}
                     </a>
                     {isActive && <span>•</span>}
@@ -26,21 +44,36 @@ import { projects } from "@cv"
                         target="_blank"
                         title={`Ver código fuente del proyecto ${name}`}
                       >
-                        <GitHub />
+                        <Icon />
                       </a>
                     )}
+                    {ModalIcon === "Eye" ? (
+                      <button data-abrir={`modal-${name}`} class="button">
+                        <ModalIcono />
+                      </button>
+                    ) : url ? (
+                      <a
+                        href={url}
+                        target="_blank"
+                        title={`Ir al proyecto ${name}`}
+                        class="button"
+                      >
+                        <ModalIcono />
+                      </a>
+                    ) : null}
                   </h3>
                   <p>{description}</p>
                 </header>
                 <footer>
                   {highlights.map((highlight) => {
-                    return <span>{highlight}</span>
+                    return <span>{highlight}</span>;
                   })}
                 </footer>
               </article>
+              <Modal name={name} icon={ModalIcon} />
             </li>
-          )
-        }
+          );
+        },
       )
     }
   </ul>
@@ -53,7 +86,6 @@ import { projects } from "@cv"
     gap: 1rem;
     margin-inline: -16px;
   }
-
   article {
     border-radius: 8px;
     border: 1px solid #f2f2f2;
@@ -63,44 +95,38 @@ import { projects } from "@cv"
     padding: 16px;
     height: 100%;
   }
-
   article header {
     flex: 1;
   }
-
   article h3 {
     margin-bottom: 4px;
+    display: flex;
+    gap: 5px;
   }
-
   article a {
     color: #111;
   }
-
   article a:hover {
     text-decoration: underline;
   }
-
   article p {
     font-size: 0.75rem;
     line-height: 1.2rem;
     margin-bottom: 4px;
   }
-
   article h3 span {
     color: rgb(0, 188, 47);
     animation-name: flicker;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-timing-function: ease-in;
     animation-iteration-count: infinite;
   }
-
   footer {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
     font-size: 0.6rem;
   }
-
   footer span {
     border-radius: 6px;
     background: #eee;
@@ -109,9 +135,20 @@ import { projects } from "@cv"
     font-weight: 500;
     padding: 0.2rem 0.6rem;
   }
-
   .github-code-link {
     margin-left: 5px;
+  }
+  .button {
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .button:hover {
+    border-radius: 4px;
+    background: #f9f9f9;
   }
 
   @keyframes flicker {

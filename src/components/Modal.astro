@@ -1,0 +1,53 @@
+---
+import { projects } from "@cv"
+const { name } = Astro.props;
+const project = projects.find((item) => item.name === name);
+---
+
+<dialog id={`modal-${name}`}>
+  <div class="modal-content">
+    <p class="nombre-corto">Nombre corto: {name}</p>
+    <button data-cerrar={`modal-${name}`}>Cerrar</button>
+  </div>
+</dialog>
+
+<script>
+    // Abrir el modal
+    document.querySelectorAll('[data-abrir]').forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        const modalId = (event.currentTarget as HTMLElement).getAttribute('data-abrir');
+        const abrir = document.getElementById(modalId) as HTMLDialogElement;
+        abrir?.showModal();
+      });
+    });
+    // Cerrar el modal
+    document.querySelectorAll('[data-cerrar]').forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        const modalId = (event.currentTarget as HTMLElement).getAttribute('data-cerrar');
+        const cerrar = document.getElementById(modalId) as HTMLDialogElement;
+        cerrar?.close();
+      });
+    });
+    // Cerrar al clicar fuera del modal
+    document.querySelectorAll('dialog').forEach((dialog) => {
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) {
+          dialog.close();
+        }
+      });
+    });
+</script>
+
+<style>
+  dialog {
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+  }
+  .modal-content {
+    padding: 2rem;
+  }
+  dialog::backdrop {
+    backdrop-filter: blur(0.7px);
+  }
+</style>

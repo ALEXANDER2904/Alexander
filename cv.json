@@ -20,9 +20,7 @@
     "estrella2": "/estrella2.webp",
     "email": "alexjo2903@gmail.com",
     "phone": "+57 3222690225",
-    "summary": "Me encanta lo que hago y se nota en mis proyectos. Como freelancer he entregado soluciones que funcionan, trabajando tanto por mi cuenta como con otros. Me mantengo aprendiendo constantemente porque sé que siempre hay espacio para mejorar y dar más.",
-    "summary1": "Amo lo que hago y se nota en mis proyectos. Como freelancer he entregado soluciones que funcionan, trabajando tanto por mi cuenta como con otros. ",
-    "summary2": "Me mantengo aprendiendo constantemente porque sé que siempre hay espacio para mejorar y dar más.",
+    "summary": "Me apasiona crear software y eso se ve en mis proyectos. Como freelancer he entregafo soluciones funcionales, trabajando bien solo o en equipo, y aplicando buenas prácticas de desarrollo full stack. Siempre estoy aprendiendo porque sé que hay espacio para mejorar y aportar más",
     "location": {
       "address": "",
       "postalCode": "08820",
@@ -154,23 +152,36 @@
   }],
   "projects": [
     {
-      "name": "System-A",
-      "description": "Sistema de gestion de Inventario y Maquinaria",
-      "highlights": [
-        "Proyecto Mediano"
-      ],
+      "name": "Lisa App",
+      "description": "Aplicación de aprendizaje de idioma educativa e inclusiva, usada por personas sordas para aprender español; mi primer proyecto en la vida real con un impacto positivo en parte de la sociedad.",
+      "highlights": [ "Aplicacion Movil (Android)" ],
+      "icon": "Mobile",
+      "ModalIcon": "Eye",
       "url": "https://github.com/ALEXANDER2904",
-      "github": "https://github.com/ALEXANDER2904"
+      "github": "https://github.com/ALEXANDER2904",
+      "images": ""
+    },
+    
+    {
+      "name": "System-A",
+      "description": "Sistema de gestión de Inventario y Maquinaria. Este fue el proyecto final de mis estudios, mi primer contacto con un proyecto real y con el desarrollo full stack.",
+      "highlights": [ "Proyecto Mediano" ],
+      "icon": "GitHub",
+      "ModalIcon": "Eye",
+      "url": "https://github.com/ALEXANDER2904",
+      "github": "https://github.com/ALEXANDER2904",
+      "images": ""
     },
     {
-      "name": "Html Path",
+      "name": "H Path",
       "isActive": true,
-      "description": "Portoflio con contendio HTML Y CSS PURO",
-      "highlights": [
-        "Ideas de diseño"
-      ],
-      "url": "https://github.com/ALEXANDER2904",
-      "github": "https://github.com/ALEXANDER2904"
+      "description": "Portafolio con contenido HTML y CSS puro, una recopilación de ejercicios que representan los lenguajes base de la programación web.",
+      "highlights": [ "Diseño" ],
+      "icon": "GitHub",
+      "ModalIcon": "NewPage",
+      "url": "https://alexander2904.github.io/alex/",
+      "github": "https://github.com/ALEXANDER2904/alex",
+      "images": ""
     }
   ]
 }

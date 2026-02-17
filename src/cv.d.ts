@@ -150,6 +150,8 @@ interface Projects {
   description: string
   highlights: Highlight
   url: string
+  icon?: string
+  images?: string
   github?: string
 }
 

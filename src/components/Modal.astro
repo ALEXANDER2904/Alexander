@@ -1,53 +1,113 @@
 ---
-import { projects } from "@cv"
+import { projects } from "@cv";
+const { url } = Astro.props;
+const { Icono } = Astro.props;
+
 const { name } = Astro.props;
 const project = projects.find((item) => item.name === name);
+
+const { Tipo } = Astro.props;
+const isModal = Tipo === "Eye";
+const isLink = Tipo === "NewPage";
 ---
 
-<dialog id={`modal-${name}`}>
-  <div class="modal-content">
-    <p class="nombre-corto">Nombre corto: {name}</p>
-    <button data-cerrar={`modal-${name}`}>Cerrar</button>
-  </div>
-</dialog>
-
+<!-- Que tipo de modal es -->
+  { isModal && (
+  <button data-abrir={`modal-${name}`} class="button">
+    <Icono />
+  </button>
+  )}
+  { isLink && (
+  <a
+    href={url}
+    target="_blank"
+    title={`Ir al proyecto ${name}`}
+    class="button"
+  >
+    <Icono />
+  </a> 
+  )}
+<!-- Modal -->
+  <dialog class="dialog-content" id={`modal-${name}`}>
+    <div class="modal-content">
+      <button data-cerrar={`modal-${name}`}>Cerrar</button>
+      <p>Nombre corto: {name}</p>
+      <p>{project?.description}</p>
+    </div>
+  </dialog>
+<!-- Logica para abrir y cerrar el modal -->
 <script>
-    // Abrir el modal
-    document.querySelectorAll('[data-abrir]').forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-        const modalId = (event.currentTarget as HTMLElement).getAttribute('data-abrir');
-        const abrir = document.getElementById(modalId) as HTMLDialogElement;
-        abrir?.showModal();
-      });
+  import { gsap } from "gsap";
+  // Función para cerrar el modal con animación
+  const cerrarDialog = (dialog: HTMLDialogElement) => {
+    gsap.to(dialog, {
+      scale: 0,
+      opacity: 0,
+      duration: 0.25,
+      ease: "power2.in",
+      onComplete: () => {
+        dialog.close();
+        gsap.set(dialog, { clearProps: "all" });
+      },
     });
-    // Cerrar el modal
-    document.querySelectorAll('[data-cerrar]').forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-        const modalId = (event.currentTarget as HTMLElement).getAttribute('data-cerrar');
-        const cerrar = document.getElementById(modalId) as HTMLDialogElement;
-        cerrar?.close();
-      });
+  };
+  // Abrir
+  document.querySelectorAll("[data-abrir]").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const modalId = (event.currentTarget as HTMLElement).getAttribute("data-abrir");
+      const dialog = document.getElementById(modalId) as HTMLDialogElement;
+      dialog.showModal();
+      gsap.fromTo(
+        dialog,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" },
+      );
     });
-    // Cerrar al clicar fuera del modal
-    document.querySelectorAll('dialog').forEach((dialog) => {
-      dialog.addEventListener('click', (e) => {
-        if (e.target === dialog) {
-          dialog.close();
-        }
-      });
+  });
+  // Cerrar con botón
+  document.querySelectorAll("[data-cerrar]").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const modalId = (event.currentTarget as HTMLElement).getAttribute( "data-cerrar");
+      const dialog = document.getElementById(modalId) as HTMLDialogElement;
+      if (dialog) cerrarDialog(dialog);
     });
+  });
+  // Cerrar al clicar fuera
+  document.querySelectorAll("dialog").forEach((dialog) => {
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog) cerrarDialog(dialog as HTMLDialogElement);
+    });
+  });
 </script>
 
 <style>
   dialog {
-    padding: 0;
-    border: none;
-    border-radius: 8px;
+     font-size: 1rem;
+     font-weight: normal;
+     font-family: Lucida Console, monospace;
+     max-width: 400px;
+     border: none;
+     border-radius: 8px;
+     letter-spacing: normal;
+     line-height: normal;
   }
   .modal-content {
     padding: 2rem;
   }
   dialog::backdrop {
     backdrop-filter: blur(0.7px);
+  }
+  .button {
+    margin-bottom: 15px;
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .button:hover {
+    border-radius: 4px;
+    background: #f9f9f9;
   }
 </style>

@@ -3,7 +3,6 @@ import Section from "../Section.astro";
 import LinkedIn from "@/icons/LinkedIn.astro";
 import GitHub from "@/icons/GitHub.astro";
 import Mail from "@/icons/Mail.astro";
-import Phone from "@/icons/Phone.astro";
 import type { SocialIcon } from "@/types";
 
 import { basics } from "@cv";
@@ -38,18 +37,6 @@ const SOCIAL_ICONS: SocialIcon = {
           )
         }
         {
-          phone && (
-            <a
-              href={`tel:${phone}`}
-              title={`Llamame`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Phone />
-            </a>
-          )
-        }
-        {
           profiles.map(({ network, url }) => {
             const Icon = SOCIAL_ICONS[network];
 
@@ -80,9 +67,11 @@ const SOCIAL_ICONS: SocialIcon = {
   .left {
     text-align: left;
   }
+  /* Contenedor de la foto y el listado de iconos bajo la foto  */
   .right {
-    text-align: center;
-    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 
     img {
       aspect-ratio: 1 / 1;

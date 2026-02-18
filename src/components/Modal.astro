@@ -11,7 +11,7 @@ const isModal = Tipo === "Eye";
 const isLink = Tipo === "NewPage";
 ---
 
-<!-- Que tipo de modal es -->
+<!-- Tipo -->
   { isModal && (
   <button data-abrir={`modal-${name}`} class="button">
     <Icono />
@@ -35,33 +35,56 @@ const isLink = Tipo === "NewPage";
       <p>{project?.description}</p>
     </div>
   </dialog>
-<!-- Logica para abrir y cerrar el modal -->
+
 <script>
   import { gsap } from "gsap";
+  /////////////// Funciones ///////////////////////
+  // Función para calcular el origen de la animación basado en la posición del botón
+  const calcularOrigen = (boton: HTMLElement, dialog: HTMLDialogElement) => {
+    const rect = boton.getBoundingClientRect();
+    const origenX = rect.left + rect.width / 2;
+    const origenY = rect.top + rect.height / 2;
+
+    const dialogRect = dialog.getBoundingClientRect();
+    const ox = ((origenX - dialogRect.left) / dialogRect.width) * 100;
+    const oy = ((origenY - dialogRect.top) / dialogRect.height) * 100;
+
+    return `${ox}% ${oy}%`;
+  };
   // Función para cerrar el modal con animación
   const cerrarDialog = (dialog: HTMLDialogElement) => {
+    const modalId = dialog.id;
+    const boton = document.querySelector(`[data-abrir="${modalId}"]`) as HTMLElement;
+    const origin = boton ? calcularOrigen(boton, dialog) : "50% 50%";
     gsap.to(dialog, {
       scale: 0,
       opacity: 0,
       duration: 0.25,
       ease: "power2.in",
+      transformOrigin: origin,
       onComplete: () => {
         dialog.close();
         gsap.set(dialog, { clearProps: "all" });
       },
     });
   };
+  /////////////// Manejo apertura y cierre ///////////////////////
   // Abrir
   document.querySelectorAll("[data-abrir]").forEach((btn) => {
     btn.addEventListener("click", (event) => {
-      const modalId = (event.currentTarget as HTMLElement).getAttribute("data-abrir");
+      const boton = event.currentTarget as HTMLElement;
+      const modalId = boton.getAttribute("data-abrir");
       const dialog = document.getElementById(modalId) as HTMLDialogElement;
       dialog.showModal();
+      
+      const origin = calcularOrigen(boton, dialog);
       gsap.fromTo(
         dialog,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" },
+        { scale: 0, opacity: 0, transformOrigin: origin },
+        { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)", transformOrigin: origin }
       );
+      // Guarda coordenadas
+      dialog.dataset.botonOrigen = boton.getAttribute("data-abrir") ?? "";
     });
   });
   // Cerrar con botón

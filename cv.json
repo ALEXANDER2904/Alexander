@@ -20,7 +20,7 @@
     "estrella2": "/estrella2.webp",
     "email": "alexjo2903@gmail.com",
     "phone": "+57 3222690225",
-    "summary": "Me apasiona crear software y eso se ve en mis proyectos. Como freelancer he entregafo soluciones funcionales, trabajando bien solo o en equipo, y aplicando buenas prácticas de desarrollo full stack. Siempre estoy aprendiendo porque sé que hay espacio para mejorar y aportar más",
+    "summary": "Me apasiona crear software y demostrarlo con mis proyectos. Como freelancer he entregado soluciones funcionales, trabajando bien solo o en equipo, y aplicando buenas prácticas de desarrollo full stack. Siempre estoy aprendiendo porque sé que hay espacio para mejorar y aportar más",
     "location": {
       "address": "",
       "postalCode": "08820",
@@ -159,7 +159,7 @@
       "ModalIcon": "Eye",
       "url": "https://github.com/ALEXANDER2904",
       "github": "https://github.com/ALEXANDER2904",
-      "images": ""
+      "images": ["/lisa5.jpeg", "/lisa6.jpeg", "/lisa2.jpeg", "/lisa1.jpeg"]
     },
     
     {
@@ -170,7 +170,8 @@
       "ModalIcon": "Eye",
       "url": "https://github.com/ALEXANDER2904",
       "github": "https://github.com/ALEXANDER2904",
-      "images": ""
+            "images": []
+
     },
     {
       "name": "H Path",
@@ -181,7 +182,8 @@
       "ModalIcon": "NewPage",
       "url": "https://alexander2904.github.io/alex/",
       "github": "https://github.com/ALEXANDER2904/alex",
-      "images": ""
+            "images": []
+
     }
   ]
 }

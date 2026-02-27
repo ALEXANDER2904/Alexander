@@ -170,8 +170,10 @@
       "ModalIcon": "Eye",
       "url": "https://github.com/ALEXANDER2904",
       "github": "https://github.com/ALEXANDER2904",
-            "images": []
-
+      "images": {
+        "horizontal": true,
+        "imagenes": ["/systema2.png", "/systema1.png", "/systema3.png", "/systema4.png"]
+      }
     },
     {
       "name": "H Path",
@@ -182,8 +184,7 @@
       "ModalIcon": "NewPage",
       "url": "https://alexander2904.github.io/alex/",
       "github": "https://github.com/ALEXANDER2904/alex",
-            "images": []
-
+      "images": []
     }
   ]
 }

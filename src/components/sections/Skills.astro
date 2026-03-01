@@ -35,28 +35,31 @@ const SKILL_ALIASES: Record<string, string> = {
 const SKILL_SECTIONS = [
   {
     title: "Frontend",
+    i18nKey: "skills.frontend",
     names: ["React / Native", "Astro", "JavaScript", "CSS", "HTML"],
   },
   {
     title: "Backend",
+    i18nKey: "skills.backend",
     names: ["Node", "MySQL"],
   },
   {
     title: "Herramientas",
+    i18nKey: "skills.tools",
     names: ["Git", "GitHub", "Model Context Protocol"],
   },
 ]
 ---
 
-<Section id="skills-section"  title="Habilidades">
+<Section id="skills-section" title="Habilidades" i18nKey="section.skills">
   <div class="groups">
     {
-      SKILL_SECTIONS.map(({ title, names }) => {
+      SKILL_SECTIONS.map(({ title, i18nKey, names }) => {
         const sectionSkills = skills.filter(({ name }) => names.includes(name))
 
         return (
           <div class="group">
-            <p>• {title}</p>
+            <p data-i18n={i18nKey}>• {title}</p>
             <ul>
               {
                 sectionSkills.map(({ name }) => {
@@ -102,9 +105,9 @@ const SKILL_SECTIONS = [
 
   li {
     align-items: center;
-    background: #eee;
+    background: var(--color-surface);
     border-radius: 6px;
-    color: black;
+    color: var(--color-text);
     display: flex;
     font-size: 0.8rem;
     font-weight: 500;

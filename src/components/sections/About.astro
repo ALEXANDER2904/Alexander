@@ -17,7 +17,7 @@ const SOCIAL_ICONS: SocialIcon = {
 <Section id="about-section">
   <div class="container">
     <div class="box left">
-      <p>
+      <p data-i18n="basics.summary">
         {summary}
       </p>
     </div>
@@ -83,18 +83,18 @@ const SOCIAL_ICONS: SocialIcon = {
     }
     /* Contenedor del listado de iconos bajo la foto */
     footer {
-      color: #555;
+      color: var(--color-text-muted);
       display: flex;
       gap: 4px;
       margin-top: 5px;
     }
     /* Lisatdo de iconos bajo la foto */
     footer a {
-      color: #777;
+      color: var(--color-text-subtle);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid #eee;
+      border: 1px solid var(--color-border-subtle);
       padding: 4px;
       height: 36px;
       width: 36px;
@@ -102,8 +102,8 @@ const SOCIAL_ICONS: SocialIcon = {
       transition: all 0.3s ease;
     }
     footer a:hover {
-      background: #eee;
-      border: 1px solid #ddd;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
     }
   }
 

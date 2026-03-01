@@ -43,7 +43,7 @@ const isLink = Tipo === "NewPage";
     <!-- Izquierdo -->
     <div class="modal-left">
       <h2 class="modal-title">{name}</h2>
-      <p class="modal-description">
+      <p class="modal-description" data-i18n={`project.${name}.description`}>
         {project?.description}
       </p>
     </div>
@@ -251,6 +251,8 @@ const isLink = Tipo === "NewPage";
     overflow: hidden;
     letter-spacing: normal;
     line-height: normal;
+    background-color: var(--color-bg);
+    color: var(--color-text);
   }
   dialog::backdrop {
     backdrop-filter: blur(0.7px);
@@ -293,16 +295,16 @@ const isLink = Tipo === "NewPage";
     font-family:
       system-ui,
       -apple-system;
-    color: #111;
+    color: var(--color-text-strong);
   }
   .modal-description {
     font-size: 0.85rem;
-    color: #666;
+    color: var(--color-text-body);
     line-height: 1.6;
   }
   .modal-divider {
     width: 1px;
-    background-color: #e0e0e0;
+    background-color: var(--color-divider);
     align-self: stretch;
     margin: 1.5rem 0;
   }
@@ -321,7 +323,7 @@ const isLink = Tipo === "NewPage";
     width: 110px;
     cursor: pointer;
     border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px var(--color-shadow-sm);
     transition: box-shadow 0.2s;
     user-select: none;
   }
@@ -330,7 +332,7 @@ const isLink = Tipo === "NewPage";
     width: 240px;
   }
   .modal-card:hover {
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 12px 32px var(--color-shadow-md);
   }
   /* Responsive */
   @media (width <= 700px) {

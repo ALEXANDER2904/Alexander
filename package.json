@@ -1,7 +1,7 @@
 {
   "name": "Portafolio_Alexander",
   "type": "module",
-  "version": "1.0",
+  "version": "1.5",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

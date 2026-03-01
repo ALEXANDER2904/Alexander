@@ -1,5 +1,10 @@
 ---
 import { basics } from "@cv"
+import Sun from "@/icons/Sun.astro"
+import Moon from "@/icons/Moon.astro"
+import Translate from "@/icons/Translate.astro"
+import esI18n from "@/i18n/es.json"
+import enI18n from "@/i18n/en.json"
 interface Props { title: string }
 const { title } = Astro.props
 const { image, summary } = basics
@@ -24,17 +29,146 @@ const { image, summary } = basics
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={summary} />
     <meta name="twitter:image" content="" />
+    <!-- Previene el destello al cargar la preferencia guardada -->
+    <script is:inline>
+      (function() {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (saved === 'dark' || (!saved && prefersDark)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+    <!-- Inyecta traducciones y aplica idioma guardado -->
+    <script is:inline define:vars={{ esI18n, enI18n }}>
+      (function() {
+        window.__i18n = { es: esI18n, en: enI18n };
+        const lang = localStorage.getItem('lang') || 'es';
+        document.documentElement.setAttribute('data-lang', lang);
+      })();
+    </script>
   </head>
   <body>
+    <div class="controls">
+      <button id="lang-toggle" class="ctrl-btn" aria-label="Cambiar idioma">
+        <Translate />
+      </button>
+      <button id="theme-toggle" class="ctrl-btn theme-toggle" aria-label="Cambiar tema">
+        <span class="icon-sun"><Sun /></span>
+        <span class="icon-moon"><Moon /></span>
+      </button>
+    </div>
     <slot />
+    <script>
+      // === Helpers i18n ===
+      function applyI18n(lang: string) {
+        const t = (window as any).__i18n?.[lang];
+        if (!t) return;
+        document.querySelectorAll<HTMLElement>('[data-i18n]').forEach(el => {
+          const key = el.dataset.i18n!;
+          if (t[key] !== undefined) {
+            el.textContent = t[key];
+            // Actualiza data-value para la animación scramble del Header
+            if ('value' in el.dataset) {
+              el.dataset.value = t[key];
+            }
+          }
+        });
+      }
+
+      // Aplica idioma guardado al cargar
+      const savedLang = document.documentElement.getAttribute('data-lang') || 'es';
+      if (savedLang !== 'es') applyI18n(savedLang);
+
+      // === Toggle Tema ===
+      const themeToggle = document.getElementById('theme-toggle') as HTMLButtonElement;
+      const htmlEl = document.documentElement;
+
+      const isDark = () => htmlEl.getAttribute('data-theme') === 'dark';
+
+      themeToggle.addEventListener('click', () => {
+        const dark = !isDark();
+        htmlEl.setAttribute('data-theme', dark ? 'dark' : 'light');
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+      });
+
+      // === Toggle Idioma ===
+      const langToggle = document.getElementById('lang-toggle') as HTMLButtonElement;
+
+      langToggle.addEventListener('click', () => {
+        const current = htmlEl.getAttribute('data-lang') || 'es';
+        const next = current === 'es' ? 'en' : 'es';
+        htmlEl.setAttribute('data-lang', next);
+        localStorage.setItem('lang', next);
+        applyI18n(next);
+      });
+    </script>
   </body>
 </html>
 
 <style is:global>
   @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Great+Vibes&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat+Subrayada:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&display=swap');
+
+  /* =====================================================
+     TOKENS DE COLOR — Centralizado para modo claro/oscuro
+     ===================================================== */
+  :root {
+    /* Fondos */
+    --color-bg:              #fff;
+    --color-surface:         #eee;
+    --color-surface-soft:    #f0f0f0;
+    --color-surface-subtle:  #f2f2f2;
+    --color-divider:         #e0e0e0;
+
+    /* Texto */
+    --color-text:            #000;
+    --color-text-strong:     #111;
+    --color-text-medium:     #444;
+    --color-text-muted:      #555;
+    --color-text-body:       #666;
+    --color-text-subtle:     #777;
+    --color-text-inverse:    #fff;
+
+    /* Bordes */
+    --color-border:          #ddd;
+    --color-border-subtle:   #eee;
+    --color-border-light:    #f2f2f2;
+
+    /* Acento */
+    --color-accent:          rgb(0, 188, 47);
+
+    /* Sombras */
+    --color-shadow-sm:       rgba(0, 0, 0, 0.2);
+    --color-shadow-md:       rgba(0, 0, 0, 0.35);
+    --color-glitch-shadow:   rgba(0, 0, 0, 0.6);
+  }
+
+  /* === MODO OSCURO === */
+  [data-theme="dark"] {
+    --color-bg:             #0f0f0f;
+    --color-surface:        #252525;
+    --color-surface-soft:   #2e2e2e;
+    --color-surface-subtle: #1a1a1a;
+    --color-divider:        #333;
+    --color-text:           #f0f0f0;
+    --color-text-strong:    #fff;
+    --color-text-medium:    #bbb;
+    --color-text-muted:     #aaa;
+    --color-text-body:      #999;
+    --color-text-subtle:    #888;
+    --color-text-inverse:   #000;
+    --color-border:         #444;
+    --color-border-subtle:  #333;
+    --color-border-light:   #252525;
+    --color-shadow-sm:      rgba(0, 0, 0, 0.5);
+    --color-shadow-md:      rgba(0, 0, 0, 0.7);
+    --color-glitch-shadow:  rgba(255, 255, 255, 0.6);
+  }
+
   html {
     font-family: Lucida Console, monospace;
-    background: #fff;
+    background: var(--color-bg);
+    color: var(--color-text);
     letter-spacing: -0.025rem;
     scroll-behavior: smooth;
   }
@@ -42,8 +176,15 @@ const { image, summary } = basics
     margin: 0;
     padding: 0;
   }
+  body {
+    position: relative;
+  }
   a {
     text-decoration: none;
+    color: inherit;
+  }
+  button {
+    color: inherit;
   }
   ul {
     list-style: none;
@@ -58,7 +199,7 @@ const { image, summary } = basics
     font-family:system-ui, -apple-system;
   }
   p{
-    color: #666;
+    color: var(--color-text-body);
     font-size: 0.9rem;
     line-height: 1.5;
     margin: 0;
@@ -73,8 +214,66 @@ const { image, summary } = basics
   }
   .hover-grow:hover {
     transform: scale(1.1);
-    background-color: #f0f0f0;
+    background-color: var(--color-surface-soft);
     border-radius: 8px;
+  }
+
+  /* === BOTONES DE CONTROL (tema + idioma) === */
+  .controls {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 999;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .ctrl-btn {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-text);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  .ctrl-btn:hover {
+    background: var(--color-surface-soft);
+    border-color: var(--color-border);
+  }
+  /* Muestra/oculta icono según el tema */
+  .icon-sun  { display: none; }
+  .icon-moon { display: flex; }
+  [data-theme="dark"] .icon-sun  { display: flex; }
+  [data-theme="dark"] .icon-moon { display: none; }
+
+  @media (width <= 700px) {
+    .controls {
+      position: fixed;
+      top: auto;
+      bottom: 1.25rem;
+      right: 50%;
+      transform: translateX(50%);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+      box-shadow: 0 4px 12px var(--color-shadow-md);
+      gap: 0.75rem;
+    }
+    .ctrl-btn {
+      background: transparent;
+      border: none;
+      width: 32px;
+      height: 32px;
+    }
+    .ctrl-btn:hover {
+      background: var(--color-surface-soft);
+      border-color: transparent;
+    }
   }
 
   @media print {

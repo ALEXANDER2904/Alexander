@@ -11,9 +11,9 @@ const { menu, atajo1, atajo2, atajo3 } = header
         <h1>{menu}</h1>
     </div>
     <div class="atajos">
-        <a href="#about-section"><p data-value={atajo1}>{atajo1}</p></a>
-        <a href="#projects-section"><p data-value={atajo2}>{atajo2}</p></a>
-        <a href="#skills-section"><p data-value={atajo3}>{atajo3}</p></a>
+        <a href="#about-section"><p data-value={atajo1} data-i18n="header.atajo1">{atajo1}</p></a>
+        <a href="#projects-section"><p data-value={atajo2} data-i18n="header.atajo2">{atajo2}</p></a>
+        <a href="#skills-section"><p data-value={atajo3} data-i18n="header.atajo3">{atajo3}</p></a>
     </div>
 </div>
 </Section>
@@ -28,7 +28,7 @@ const { menu, atajo1, atajo2, atajo3 } = header
         h1{
         font-family: "Barlow", sans-serif;
         font-size: clamp(1.5rem, 5vw, 1rem);
-        border: 1px solid black;
+        border: 1px solid var(--color-text);
         font-weight: 700;
         padding: 5px;
         }
@@ -38,14 +38,14 @@ const { menu, atajo1, atajo2, atajo3 } = header
         cursor: pointer;
         p {
             font-family: 'Space Mono', monospace;
-            color: rgb(0, 0, 0);
+            color: var(--color-text);
             padding: 0rem clamp(1rem, 1vw, 1rem);
             border-radius: clamp(0.4rem, 0.75vw, 1rem);
         }
 
         p:hover {
-            background-color: rgb(0, 0, 0);
-            color: rgb(255, 255, 255);
+            background-color: var(--color-text);
+            color: var(--color-text-inverse);
         }
         }
 

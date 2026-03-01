@@ -18,7 +18,7 @@ const mICON: Record<string, any> = {
 };
 ---
 
-<Section id="projects-section" title="Proyectos">
+<Section id="projects-section" title="Proyectos" i18nKey="section.projects">
   <ul>
     {
       projects.map(({ url, description, highlights, name, isActive, github, icon, ModalIcon }) => {
@@ -49,11 +49,11 @@ const mICON: Record<string, any> = {
                     )}
                     <Modal name={name} url={url} Tipo={ModalIcon} Icono={ModalIcono} />
                   </h3>
-                  <p>{description}</p>
+                  <p data-i18n={`project.${name}.description`}>{description}</p>
                 </header>
                 <footer>
-                  {highlights.map((highlight) => {
-                    return <span>{highlight}</span>;
+                  {highlights.map((highlight, hi) => {
+                    return <span data-i18n={`project.${name}.highlights.${hi}`}>{highlight}</span>;
                   })}
                 </footer>
               </article>
@@ -74,7 +74,7 @@ const mICON: Record<string, any> = {
   }
   article {
     border-radius: 8px;
-    border: 1px solid #f2f2f2;
+    border: 1px solid var(--color-border-light);
     gap: 16px;
     display: flex;
     flex-direction: column;
@@ -90,7 +90,7 @@ const mICON: Record<string, any> = {
     gap: 5px;
   }
   article a {
-    color: #111;
+    color: var(--color-text-strong);
   }
   article a:hover {
     text-decoration: underline;
@@ -101,7 +101,7 @@ const mICON: Record<string, any> = {
     margin-bottom: 4px;
   }
   article h3 span {
-    color: rgb(0, 188, 47);
+    color: var(--color-accent);
     animation-name: flicker;
     animation-duration: 2s;
     animation-timing-function: ease-in;
@@ -115,8 +115,8 @@ const mICON: Record<string, any> = {
   }
   footer span {
     border-radius: 6px;
-    background: #eee;
-    color: #444;
+    background: var(--color-surface);
+    color: var(--color-text-medium);
     font-size: 0.6rem;
     font-weight: 500;
     padding: 0.2rem 0.6rem;
@@ -144,7 +144,6 @@ const mICON: Record<string, any> = {
 
     article {
       border: none;
-      box-shadow: 0 1px 1px #f2f2f2;
       padding: 0 0 16px 0;
     }
   }

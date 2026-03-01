@@ -1,0 +1,17 @@
+{
+  "header.atajo1": "SOBRE MI",
+  "header.atajo2": "PROYECTOS",
+  "header.atajo3": "HABILIDADES",
+  "basics.summary": "Me apasiona crear software y demostrarlo con mis proyectos. Como freelancer he entregado soluciones funcionales, trabajando bien solo o en equipo, y aplicando buenas prácticas de desarrollo full stack. Siempre estoy aprendiendo porque sé que hay espacio para mejorar y aportar más",
+  "section.projects": "Proyectos",
+  "section.skills": "Habilidades",
+  "skills.frontend": "Frontend",
+  "skills.backend": "Backend",
+  "skills.tools": "Herramientas",
+  "project.Lisa App.description": "Aplicación de aprendizaje de idioma educativa e inclusiva, usada por personas sordas para aprender español; mi primer proyecto en la vida real con un impacto positivo en parte de la sociedad.",
+  "project.Lisa App.highlights.0": "Aplicacion Movil (Android)",
+  "project.System-A.description": "Sistema de gestión de Inventario y Maquinaria. Este fue el proyecto final de mis estudios, mi primer contacto con un proyecto real y con el desarrollo full stack.",
+  "project.System-A.highlights.0": "Proyecto Mediano",
+  "project.H Path.description": "Portafolio con contenido HTML y CSS puro, una recopilación de ejercicios que representan los lenguajes base de la programación web.",
+  "project.H Path.highlights.0": "Diseño"
+}

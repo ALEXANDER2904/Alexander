@@ -1,9 +1,9 @@
 ---
-const { title, id } = Astro.props
+const { title, id, i18nKey } = Astro.props
 ---
 
 <section id={id}>
-  {title && <h2>{title}</h2>}
+  {title && <h2 data-i18n={i18nKey}>{title}</h2>}
   <slot />
 </section>
 
@@ -12,14 +12,12 @@ const { title, id } = Astro.props
     max-width: 700px;
     margin: 0 auto 48px;
   }
-
   h2 {
     margin-bottom: 8px;
     font-weight: 700;
     line-height: 1.5;
     font-size: 1.5rem;
   }
-
   @media (width <= 700px) {
     section {
       margin-bottom: 38px;

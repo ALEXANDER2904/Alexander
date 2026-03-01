@@ -1,0 +1,17 @@
+{
+  "header.atajo1": "ABOUT ME",
+  "header.atajo2": "PROJECTS",
+  "header.atajo3": "SKILLS",
+  "basics.summary": "I'm passionate about building software and proving it through my projects. As a freelancer I've delivered functional solutions, working both independently and in teams, applying solid full stack development practices. I'm always learning because I know there's room to keep improving and contributing more.",
+  "section.projects": "Projects",
+  "section.skills": "Skills",
+  "skills.frontend": "Frontend",
+  "skills.backend": "Backend",
+  "skills.tools": "Tools",
+  "project.Lisa App.description": "An educational and inclusive language-learning app used by deaf individuals to learn Spanish — my first real-world project with a genuine positive social impact.",
+  "project.Lisa App.highlights.0": "Mobile App (Android)",
+  "project.System-A.description": "An Inventory and Machinery Management System. This was my final academic project — my first contact with a real codebase and full stack development.",
+  "project.System-A.highlights.0": "Mid-size Project",
+  "project.H Path.description": "A portfolio built in pure HTML and CSS, a collection of exercises representing the foundational languages of web programming.",
+  "project.H Path.highlights.0": "Design"
+}

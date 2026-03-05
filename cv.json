@@ -21,13 +21,6 @@
     "email": "alexjo2903@gmail.com",
     "phone": "+57 3222690225",
     "summary": "Me apasiona crear software y demostrarlo con mis proyectos. Como freelancer he entregado soluciones funcionales, trabajando bien solo o en equipo, y aplicando buenas prácticas de desarrollo full stack. Siempre estoy aprendiendo porque sé que hay espacio para mejorar y aportar más",
-    "location": {
-      "address": "",
-      "postalCode": "08820",
-      "city": "Pitalito",
-      "countryCode": "COL",
-      "region": "Colombia"
-    },
     "profiles": [
       {
         "network": "LinkedIn",
@@ -41,36 +34,6 @@
       }
     ]
   },
-  "work": [
-    {
-      "name": "Freelancer",
-      "url": "",
-      "startDate": "2024-10-01",
-      "endDate": null,
-      "summary": "Participado en el desarrollo de proyectos en equipo y ademas en el desarrollo individual de portfolios, paginas y landing pages para entornos comerciales.",
-      "highlights": [
-        "Started the company"
-      ]
-    }
-  ],
-  "education": [{
-    "institution": "SENA - YAMBORO",
-    "url": "https://www.sena.edu.co/es-co/Paginas/default.aspx",
-    "area": "Analisis y desarrollo de software",
-    "studyType": "Tecnologo",
-    "startDate": "2022-10-01",
-    "endDate": "2024-10-01",
-    "score": "4.0",
-    "courses": [
-      "DB1101 - Basic SQL"
-    ]
-  }],
-  "certificates": [{
-    "name": "Certificate",
-    "date": "2021-11-07",
-    "issuer": "Company",
-    "url": "https://certificate.com"
-  }],
   "skills": [
     {
       "name": "React / Native",
@@ -139,17 +102,6 @@
       "fluency": "Avanzado"
     }
   ],
-  "interests": [{
-    "name": "Wildlife",
-    "keywords": [
-      "Ferrets",
-      "Unicorns"
-    ]
-  }],
-  "references": [{
-    "name": "Jane Doe",
-    "reference": "Reference…"
-  }],
   "projects": [
     {
       "name": "Lisa App",
@@ -183,7 +135,7 @@
       "icon": "GitHub",
       "ModalIcon": "NewPage",
       "url": "https://alexander2904.github.io/alex/",
-      "github": "https://github.com/ALEXANDER2904/alex",
+      "github": "https://alexander2904.github.io/H-Path/",
       "images": []
     }
   ]
